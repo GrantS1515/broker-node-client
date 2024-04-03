@@ -10,7 +10,7 @@ import { newSingleEvent, IndexedEvent, SingleEvent,
 newMultipleEventRequest, isMultipleEventsResponse, isMultipleEventsRequest,
 newMultipleEventsResponse, MultipleEventsResponse
 } from "broker-types/broker-types.js";
-import { Client, newClient, closeClient, NodeClient} from "./client.js";
+import { Client, newClient, closeClient, NodeSender} from "./client.js";
 
 
 describe("send single messages to a broker", () => {
@@ -63,7 +63,7 @@ describe("send single messages to a broker", () => {
 	it("can have a client send to a broker", async () => {
 		const startEvent = newSingleEvent({ name: "hello" })
 		const goalEvent = { index: 0, event: startEvent };
-		const myClient = new NodeClient(client);
+		const myClient = new NodeSender(client);
 
 		const gotEvent: Promise<IndexedEvent> = new Promise(res => {
 			client.indexedSingleEvent$.subscribe((e: IndexedEvent) => res(e));
@@ -122,7 +122,7 @@ describe("send request for multiple events", () => {
 
 	})
 	it("request multiple events", async () => {
-		const myClient = new NodeClient(client);
+		const myClient = new NodeSender(client);
 
 		const gotEvent: Promise<IndexedEvent[]> = new Promise(res => {
 			client.multipleEvents$.pipe(

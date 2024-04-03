@@ -17,7 +17,7 @@ interface ClientSender {
 	sendMultipleEventsRequest(): void,
 }
 
-export class NodeClient implements ClientSender {
+export class NodeSender implements ClientSender {
 	private client: Client;
 
 	constructor(client: Client) {
