@@ -2,11 +2,12 @@
   "name": "broker-node-client",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/client.js",
+  "type": "module",
   "scripts": {
     "tscomp": "npx tsc-watch",
     "tslint": "npx esw -w src/**/*.ts",
-    "tstest": "node_modules/mocha/bin/mocha.js -w --parallel src/**/*.spec.ts"
+    "test": "node_modules/mocha/bin/mocha.js -w --parallel dist/**/*.spec.js"
   },
   "dependencies": {
     "broker-types": "github:GrantS1515/broker-types",

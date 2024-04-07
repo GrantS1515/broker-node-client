@@ -5,11 +5,11 @@
 import { expect } from "chai";
 import { WebSocketServer, WebSocket } from "ws";
 import { map, tap } from "rxjs"
-import { MaybeType } from "maybe/src/maybe.js";
+import { MaybeType } from "maybe";
 import { newSingleEvent, IndexedEvent, SingleEvent, 
 newMultipleEventRequest, isMultipleEventsResponse, isMultipleEventsRequest,
 newMultipleEventsResponse, MultipleEventsResponse
-} from "broker-types/broker-types.js";
+} from "broker-types";
 import { Client, newClient, closeClient, NodeSender} from "./client.js";
 
 
